@@ -1,0 +1,19 @@
+<div class="colored-container" [formGroup]="form">
+  @for(option of options; track option.id) {
+  <div class="row">
+    <input
+      type="radio"
+      formControlName="physicalActivity"
+      [id]="option.id"
+      [value]="option.id"
+      class="form-radio"
+    />
+    <label [for]="option.id" class="form-radio-label">
+      <div class="form-radio-label-wrap">
+        {{ option.title }}
+        <p class="subtitle">{{ option.description }}</p>
+      </div>
+    </label>
+  </div>
+  }
+</div>

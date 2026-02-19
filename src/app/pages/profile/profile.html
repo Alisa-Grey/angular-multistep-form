@@ -1,0 +1,41 @@
+<header class="header">
+  <a [routerLink]="['/experts']" class="link">Эксперты</a>
+  <button class="outlined-button" (click)="deleteProfile()">Удалить профиль</button>
+</header>
+<div class="colored-container profile-container">
+  <h2 class="section-heading">Личные данные</h2>
+  <div class="profile-section-container">
+    <div class="profile-row">
+      <p class="bold-text">Имя:</p>
+      <p>{{ profile.fullName }}</p>
+    </div>
+    <div class="profile-row">
+      <p class="bold-text">Возраст:</p>
+      <p>{{ ageWithUnit }}</p>
+    </div>
+  </div>
+  <h2 class="section-heading">Параметры</h2>
+  <div class="profile-section-container">
+    <div class="profile-row">
+      <p class="bold-text">Рост:</p>
+      <p>{{ profile.height }} см</p>
+    </div>
+    <div class="profile-row">
+      <p class="bold-text">Вес:</p>
+      <p>{{ profile.weight }} кг</p>
+    </div>
+  </div>
+  <h2 class="section-heading">Физическая активность</h2>
+  <div class="profile-section-container">
+    <div class="profile-row">
+      <p class="bold-text">{{ physicalActivity.title }}:</p>
+      <p>{{ physicalActivity.description }}</p>
+    </div>
+  </div>
+  <h2 class="section-heading">Цели</h2>
+  <div class="profile-row">
+    @for(goal of goals; track $index) {
+    <div class="profile-chip">{{ goal }}</div>
+    }
+  </div>
+</div>

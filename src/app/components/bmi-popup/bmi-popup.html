@@ -1,0 +1,16 @@
+@if(popupVariant) {
+<div class="overley">
+  <div class="colored-container stretch">
+    <div class="popup-header">
+      <button class="close-button" (click)="closePopup()"></button>
+    </div>
+    <p>{{ popupText }}</p>
+    <p>Проверьте внесённые вами данные.</p>
+    <p>Если всё верно, рекомендуем вам обратиться к специалисту.</p>
+    <div class="popup-iamge-wrap">
+      <img [src]="image" alt="" class="popup-image" />
+    </div>
+    <button class="primary-button" (click)="goToNextStep()">Ок, продолжить</button>
+  </div>
+</div>
+}

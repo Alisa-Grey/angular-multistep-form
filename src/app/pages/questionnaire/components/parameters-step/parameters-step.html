@@ -1,0 +1,12 @@
+<div class="colored-container start" [formGroup]="form">
+  <label for="height">Рост</label>
+  <input type="number" id="height" formControlName="height" placeholder="Рост" class="form-input" />
+  @if(height?.invalid && height?.dirty) {
+  <p class="error-text">Заполните рост в см от 100 до 250</p>
+  }
+  <label for="weight">Вес</label>
+  <input type="number" id="weight" formControlName="weight" placeholder="Вес" class="form-input" />
+  @if(weight?.invalid && weight?.dirty) {
+  <p class="error-text">Заполните вес в кг от 10 до 250</p>
+  }
+</div>

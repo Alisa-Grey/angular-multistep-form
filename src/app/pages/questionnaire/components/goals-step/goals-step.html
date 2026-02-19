@@ -1,0 +1,14 @@
+<div [formGroup]="parentForm">
+  @if(goalsArray.length > 0) {
+  <div formArrayName="goals" class="colored-container start">
+    @for (goal of goals; track $index) {
+    <div class="row">
+      <input type="checkbox" [id]="goal.id" [formControlName]="$index" class="form-checkbox" />
+      <label [for]="goal.id" class="form-radio-label">
+        {{ goal.title }}
+      </label>
+    </div>
+    }
+  </div>
+  }
+</div>

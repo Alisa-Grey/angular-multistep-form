@@ -1,0 +1,39 @@
+<div class="colored-container start" [formGroup]="form">
+  <label for="firstName">Имя</label>
+  <input
+    type="text"
+    id="firstName"
+    placeholder="Имя"
+    formControlName="firstName"
+    class="form-input"
+  />
+  @if(firstName?.invalid && firstName?.dirty) {
+  <p class="error-text">Введите ваше имя от 2 до 25 букв</p>
+  }
+  <label for="lastName">Фамилия</label>
+  <input
+    type="text"
+    id="lastName"
+    placeholder="Фамилия"
+    formControlName="lastName"
+    class="form-input"
+  />
+  @if(lastName?.invalid && lastName?.dirty) {
+  <p class="error-text">Введите вашу фамилию от 1 до 35 букв</p>
+  }
+  <label for="lastName">дата рождения</label>
+  <input
+    type="date"
+    id="birthdate"
+    placeholder="01.01.2000"
+    formControlName="birthdate"
+    class="form-input"
+  />
+  @if(birthdate?.errors?.['minAgeError']) {
+  <p class="error-text">Маловато будет, возраст должен быть больше 14 лет</p>
+  } @if(birthdate?.errors?.['maxAgeError']) {
+  <p class="error-text">Многовато будет, возраст должен быть меньше 100 лет</p>
+  } @if(birthdate?.errors?.['futureDate']) {
+  <p class="error-text">Вы из будущего?</p>
+  }
+</div>

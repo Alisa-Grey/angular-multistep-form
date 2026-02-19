@@ -1,0 +1,37 @@
+@use '../../../variables' as variables;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: 100vw;
+  min-height: 100dvh;
+  background-color: variables.$color-light-grey;
+}
+
+.step-header {
+  align-items: flex-start;
+  border-radius: 0 0 20px 20px;
+  background-color: variables.$color-white;
+}
+
+.form-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100vw;
+  height: 100%;
+  padding: 8px 24px 0;
+  background-color: variables.$color-light-grey;
+}
+
+.form-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

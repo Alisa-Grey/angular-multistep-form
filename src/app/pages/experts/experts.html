@@ -1,0 +1,19 @@
+<header class="header">
+  <button class="icon-button" (click)="goBack()">
+    <svg icon="backIcon" class="back-icon"></svg>
+  </button>
+</header>
+@if(experts | async) { @for(expert of experts | async; track expert.id) {
+<div class="colored-container start">
+  <div class="row">
+    <p class="bold-text">{{ expert.name }},</p>
+    <p>{{ expert.company }}</p>
+  </div>
+  <h3>Контакты</h3>
+  <p>Город: {{ expert.city }}</p>
+  <p>email: {{ expert.email }}</p>
+  <p>Тел.: {{ expert.phone }}</p>
+</div>
+} } @else {
+<p>Загрузка....</p>
+}

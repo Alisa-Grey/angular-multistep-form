@@ -1,0 +1,39 @@
+<div class="colored-container step-header">
+  <div class="row">
+    <button class="icon-button" [disabled]="step.id === 0" (click)="stepsService.goToPrevStep()">
+      <svg icon="backIcon" class="back-icon"></svg>
+    </button>
+    <p class="bold-text">Шаг {{ step.id + 1 }} из {{ stepsList.length }}</p>
+  </div>
+  <h2 class="heading">{{ step.title }}</h2>
+</div>
+<form [formGroup]="questionnaireForm">
+  <div class="form-inner">
+    @switch(step.id) { @case (0) {
+    <app-parameters-step [parentForm]="questionnaireForm"></app-parameters-step>
+    <app-bmi-popup [(popupVariant)]="popupVariant"></app-bmi-popup>
+    } @case (1) {
+    <app-physical-activity-step [parentForm]="questionnaireForm"></app-physical-activity-step>
+    } @case(2) {
+    <app-personal-data-step [parentForm]="questionnaireForm"></app-personal-data-step>
+    } @case(3) {
+    <app-goals-step [parentForm]="questionnaireForm"></app-goals-step>
+    } @default {
+    <app-parameters-step [parentForm]="questionnaireForm"></app-parameters-step>
+    } }
+    <div class="colored-container stretch">
+      @if(step.id < stepsList.length - 1) {
+      <button
+        type="button"
+        class="primary-button"
+        (click)="handleNext()"
+        [disabled]="!questionnaireForm.get(step.semanticId)?.valid"
+      >
+        Следующий
+      </button>
+      } @else {
+      <button type="button" class="primary-button" (click)="submitForm()">Завершить</button>
+      }
+    </div>
+  </div>
+</form>

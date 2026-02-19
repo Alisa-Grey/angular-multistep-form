@@ -1,0 +1,341 @@
+@use './_variables' as variables;
+
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter'), local('Inter-Regular'), local('Inter Regular'),
+    url('#{variables.$font-path}/Inter-Regular.woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter-Medium'), local('Inter Medium'),
+    url('#{variables.$font-path}/Inter-Medium.woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter-SemiBold'), local('Inter SemiBold'),
+    url('#{variables.$font-path}/Inter-SemiBold.woff');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter-Bold'), local('Inter Bold'), url('#{variables.$font-path}/Inter-Bold.woff');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: variables.$color-dark;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: variables.$color-white;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+// containers
+.colored-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 35vw;
+  padding: 16px;
+  border-radius: 24px;
+  background-color: variables.$color-white;
+
+  @media (max-width: 1100px) {
+    width: 70vw;
+  }
+
+  @media (max-width: 480px) {
+    width: 100vw;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.stretch {
+  align-items: stretch;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35vw;
+  padding: 14px;
+  border-radius: 0 0 24px 20px;
+  background-color: variables.$color-white;
+}
+
+// text
+.bold-text {
+  font-weight: 500;
+  color: variables.$color-black;
+}
+
+.heading {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: variables.$color-dark-grey;
+}
+
+.error-text {
+  font-size: 14px;
+  color: variables.$color-warning-middle;
+}
+
+// buttons
+.icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transition: color 0.1s ease;
+
+  &:hover {
+    color: variables.$color-primary-middle;
+  }
+}
+
+.primary-button {
+  padding: 16px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: variables.$color-white;
+  background-color: variables.$color-primary;
+
+  &:disabled {
+    color: variables.$color-middle-grey;
+    background-color: variables.$color-light-grey;
+    pointer-events: none;
+  }
+}
+
+.outlined-button {
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid variables.$color-dark-grey;
+  color: variables.$color-dark-grey;
+}
+
+.back-icon {
+  width: 15px;
+  height: 12px;
+}
+
+.close-button {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: variables.$color-middle-grey;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+// links
+.link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.22s ease;
+
+  &:hover {
+    color: variables.$color-primary-middle;
+  }
+}
+
+// forms
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  background-color: variables.$color-light-grey;
+  border: 1px solid variables.$color-light-grey;
+  border-radius: 8px;
+  outline: none;
+
+  &[type='date'] {
+    font-family: inherit;
+
+    &::-webkit-datetime-edit {
+      color: variables.$color-dark-grey;
+    }
+  }
+
+  &.ng-invalid.ng-dirty {
+    border-color: variables.$color-warning-middle;
+  }
+}
+
+.form-label {
+  font-size: 14px;
+  line-height: 20px;
+  color: variables.$color-dark-grey;
+}
+
+.form-radio-label-wrap {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: variables.$color-light-grey;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form-radio-label,
+.subtitle {
+  transition: color 0.2s ease-in-out;
+}
+
+.form-radio-label {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-radio {
+  width: 1px;
+  height: 1px;
+  opacity: 0.1;
+
+  &:checked + .form-radio-label,
+  &:checked + .form-radio-label .subtitle {
+    color: variables.$color-white;
+  }
+
+  &:checked + .form-radio-label > .form-radio-label-wrap {
+    background-color: variables.$color-primary-middle;
+  }
+}
+
+.form-checkbox {
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid variables.$color-middle-grey;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.form-checkbox::after {
+  content: '\2714';
+  position: absolute;
+  top: -0px;
+  left: 2px;
+  width: 0px;
+  height: 0px;
+  font-size: 14px;
+  color: variables.$color-primary-middle;
+  overflow: hidden;
+}
+
+.form-checkbox:checked::after {
+  width: 20px;
+  height: 20px;
+}
+
+// popup
+.overley {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: variables.$color-dark-transparent;
+}
+
+.popup-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+
+  & .close-button {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.popup-iamge-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+}
+
+.popup-image {
+  width: 200px;
+}

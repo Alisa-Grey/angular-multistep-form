@@ -1,0 +1,12 @@
+@use '../../../variables' as variables;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: 100vw;
+  min-height: 100dvh;
+  background-color: variables.$color-light-grey;
+}

@@ -1,0 +1,11 @@
+@use '../../../variables' as variables;
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: variables.$color-light-grey;
+}

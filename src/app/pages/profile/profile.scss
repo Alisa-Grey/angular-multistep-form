@@ -1,0 +1,51 @@
+@use '../../../variables' as variables;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: 100vw;
+  min-height: 100dvh;
+  background-color: variables.$color-light-grey;
+}
+
+.profile-container {
+  align-items: flex-start;
+  border-radius: 20px;
+}
+
+.profile-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.section-heading {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: variables.$color-dark;
+}
+
+.profile-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: variables.$color-light-grey;
+}
+
+.profile-chip {
+  flex-shrink: 0;
+  margin-right: 4px;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: variables.$color-primary-light;
+}
